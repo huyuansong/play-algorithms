@@ -19,18 +19,29 @@ public class InsertionSort {
                 swap(arr, j - 1, j);
         }
     }
-
+    // 上面的方法，交换元素的效率是非常低的；这种移动元素的效率高很多
     public static <E extends Comparable<E>> void sort2(E[] arr){
 
-        for(int i = 0; i < arr.length; i ++){
+/*         for(int i = 0; i < arr.length; i ++){
 
             // 将 arr[i] 插入到合适的位置
             E t = arr[i];
             int j;
             for(j = i; j - 1 >= 0 && t.compareTo(arr[j - 1]) < 0; j --){
-                arr[j] = arr[j - 1];
+                arr[j] = arr[j - 1]; // 把比i元素小的元素向后移动
             }
             arr[j] = t;
+        } */
+
+        for(int i = 0; i < arr.length; i ++){
+
+            // 将 arr[i] 插入到合适的位置
+            //E t = arr[i];  // 把i位置的元素不用t缓冲，效率能够翻倍的提高
+            int j;
+            for(j = i; j - 1 >= 0 && arr[i].compareTo(arr[j - 1]) < 0; j --){
+                arr[j] = arr[j - 1]; // 把比i元素小的元素向后移动
+            }
+            arr[j] = arr[i];
         }
     }
 
