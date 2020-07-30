@@ -34,7 +34,7 @@ public class Student implements Comparable<Student>{
             return false;
 
         Student another = (Student)student;
-        return this.score == another.score;
+        return this.score == another.score;  // 按照程序员关心的属性排序
     }
 
     @Override

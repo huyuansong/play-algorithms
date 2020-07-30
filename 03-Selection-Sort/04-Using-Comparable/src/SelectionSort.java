@@ -36,7 +36,7 @@ public class SelectionSort {
         Student[] students = {new Student("Alice", 98),
                               new Student("Bobo", 100),
                               new Student("Charles", 66)};
-        SelectionSort.sort(students);
+        SelectionSort.sort(students);  // Student 类需要实现Comparable接口
         for(Student student: students)
             System.out.print(student + " ");
         System.out.println();
