@@ -19,7 +19,7 @@ public class SelectionSort {
 
     // 换个方法实现选择排序法，我们叫 sort2
     public static <E extends Comparable> void sort2(E[] arr){
-
+        // 依旧是从小到大的排列顺序，但是从后往前排
         for(int i = arr.length - 1; i >= 0; i --){
 
             // 选择 arr[0...i] 中的最大值
