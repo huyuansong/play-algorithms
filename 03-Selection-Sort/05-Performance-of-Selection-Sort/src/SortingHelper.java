@@ -5,7 +5,7 @@ public class SortingHelper {
     public static <E extends Comparable<E>> boolean isSorted(E[] arr){
 
         for(int i = 1; i < arr.length; i ++)
-            if(arr[i - 1].compareTo(arr[i]) > 0)
+            if(arr[i - 1].compareTo(arr[i]) > 0) // 前面的元素比后面的元素大，排序不成功
                 return false;
         return true;
     }
