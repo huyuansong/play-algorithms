@@ -251,19 +251,22 @@ class Solution {
 
         // 我们使用LinkedList来做为我们的先入先出的队列
         ArrayQueue<Pair<TreeNode, Integer>> queue = new ArrayQueue<Pair<TreeNode, Integer>>();
-        queue.enqueue(new Pair<TreeNode, Integer>(root, 0));
+        
+        // 先把根推入到队列中
+        queue.enqueue(new Pair<TreeNode, Integer>(root, 0));  
 
+        // 二叉树的层次遍历
         while(!queue.isEmpty()){
 
-            Pair<TreeNode, Integer> front = queue.dequeue();
+            Pair<TreeNode, Integer> front = queue.dequeue();  // 一个根节点的出队，加入结果list，伴随着两个子节点的进队
             TreeNode node = front.getKey();
             int level = front.getValue();
 
-            if(level == res.size())
+            if(level == res.size())  // level 从0 开始，size从1开始，正常情况 level < size ; level=size 说明到了二叉树的新的一层
                 res.add(new ArrayList<Integer>());
             assert level < res.size();
 
-            res.get(level).add(node.val);
+            res.get(level).add(node.val); // 一个根节点的出队，加入结果list，伴随着两个子节点的进队
             if(node.left != null)
                 queue.enqueue(new Pair<TreeNode, Integer>(node.left, level + 1));
             if(node.right != null)
