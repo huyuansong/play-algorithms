@@ -6,7 +6,7 @@ class Solution {
 
         Stack<Character> stack = new Stack<>();
         for(int i = 0 ; i < s.length() ; i ++){
-            char c = s.charAt(i);
+            char c = s.charAt(i);   // 依次截出字符串中的所有元素
             if(c == '(' || c == '[' || c == '{')
                 stack.push(c);
             else{
@@ -22,7 +22,7 @@ class Solution {
                     return false;
             }
         }
-        return stack.isEmpty();
+        return stack.isEmpty(); //匹配完成，则栈中为空；栈中有数据，不匹配
     }
 
     public static void main(String[] args) {
