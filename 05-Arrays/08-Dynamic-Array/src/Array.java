@@ -17,7 +17,7 @@ public class Array<E> {
 
     // 获取数组的容量
     public int getCapacity(){
-        return data.length;
+        return data.length;  // 不管数组有没有填满，数组的长度都是固定不会改变的
     }
 
     // 获取数组中的元素个数
@@ -36,11 +36,11 @@ public class Array<E> {
         if(index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
-        if(size == data.length)
+        if(size == data.length)    // 目前的数组存储的元素个数已经 触达 数组的大小(满了) 
             resize(2 * data.length);
 
-        for(int i = size - 1; i >= index ; i --)
-            data[i + 1] = data[i];
+        for(int i = size - 1; i >= index ; i --)  // 元素后移，需要 从后往前
+            data[i + 1] = data[i]; 
 
         data[index] = e;
 
@@ -98,7 +98,7 @@ public class Array<E> {
         for(int i = index + 1 ; i < size ; i ++)
             data[i - 1] = data[i];
         size --;
-        data[size] = null; // loitering objects != memory leak
+        data[size] = null; // loitering objects != memory leak 这里不置为null也可以，外界已经无法访问该位置了
 
         if(size == data.length / 2)
             resize(data.length / 2);
