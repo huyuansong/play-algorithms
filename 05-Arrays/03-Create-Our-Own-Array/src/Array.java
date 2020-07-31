@@ -14,7 +14,7 @@ public class Array {
         this(10);
     }
 
-    // 获取数组的容量
+    // 获取数组的容量(最大容量)
     public int getCapacity(){
         return data.length;
     }
