@@ -2,7 +2,7 @@
 public class Array {
 
     private int[] data;
-    private int size;
+    private int size;  // 表示的是数据的大小，也就是元素的个数，对应索引就是下一个要存放新元素的位置，该位置目前为空
 
     // 构造函数，传入数组的容量capacity构造Array
     public Array(int capacity){
@@ -55,12 +55,13 @@ public class Array {
         if(index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
-        for(int i = size - 1; i >= index ; i --)
-            data[i + 1] = data[i];
+        // 最后一个元素的索引 size-1 ，由于新插入元素在index位置，index原来元素也要后移
+        for(int i = size - 1; i >= index ; i --) 
+            data[i + 1] = data[i];  // size < capacity 所以不会越界，后面的元素取前面元素的值(元素后移)
 
-        data[index] = e;
+        data[index] = e; // index位置元素已经后移，可以被直接覆盖为新值e
 
-        size ++;
+        size ++;  // 插入新元素后，维护size的语义
     }
 
 }
