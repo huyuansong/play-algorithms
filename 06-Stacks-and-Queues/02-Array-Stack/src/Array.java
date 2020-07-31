@@ -148,7 +148,7 @@ public class Array<E> {
     // 将数组空间的容量变成newCapacity大小
     private void resize(int newCapacity){
 
-        E[] newData = (E[])new Object[newCapacity];
+        E[] newData = (E[])new Object[newCapacity]; // 不管是扩容，还是缩容，都需要重新申请空间
         for(int i = 0 ; i < size ; i ++)
             newData[i] = data[i];
         data = newData;
