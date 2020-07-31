@@ -96,7 +96,7 @@ public class Array {
 
         int ret = data[index];
         for(int i = index + 1 ; i < size ; i ++)
-            data[i - 1] = data[i];
+            data[i - 1] = data[i]; // 把index位置的元素覆盖为后面的值 (元素前移)
         size --;
         return ret;
     }
